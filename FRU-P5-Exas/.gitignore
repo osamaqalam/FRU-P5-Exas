@@ -1,0 +1,39 @@
+# Unity generated files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Auto-generated project files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# Unity cache directory
+# (Should be included in the repository if sharing the project with collaborators)
+# [Cc]ache/
+
+# User-specific settings
+*.psess
+*.vsp
+*.pdb
+*.opendb
+*.VC.db
+.idea/
+
+# Exclude crash reports
+[Cc]rashlogs/
+
+# Ignore non-essential Unity files
+*.DS_Store
+Thumbs.db
