@@ -662,6 +662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 36945956}
+  buttonText: {fileID: 1766717742}
 --- !u!4 &541273227
 Transform:
   m_ObjectHideFlags: 0
@@ -1324,9 +1325,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: StartButtonHandler, Assembly-CSharp
-        m_MethodName: OnButtonPress
+      - m_Target: {fileID: 541273226}
+        m_TargetAssemblyTypeName: ToggleExasVisibility, Assembly-CSharp
+        m_MethodName: ToggleObjectVisibility
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
