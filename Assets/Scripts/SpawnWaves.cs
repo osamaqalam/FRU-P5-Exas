@@ -20,8 +20,11 @@ public class SpawnWaves : MonoBehaviour
             // Loop through each child of the parent
             foreach (Transform child in exasParent.transform)
             {
+                // Calculate the offset relative to the reference object's local rotation
+                Vector3 adjustedOffset = child.TransformDirection(offset);
+
                 // Calculate spawn position relative to the child
-                Vector3 spawnPosition = child.position + offset;
+                Vector3 spawnPosition = child.position + adjustedOffset;
 
                 // Spawn the object at the calculated position with the child's rotation
                 Instantiate(objectToSpawn, spawnPosition, child.rotation);
@@ -42,7 +45,6 @@ public class SpawnWaves : MonoBehaviour
         }
 
         // Find all GameObjects in the scene that are instances of the prefab
-        //GameObject[] allObjects = GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
         GameObject[] objects = GameObject.FindGameObjectsWithTag(objectToSpawn.tag);
 
 
