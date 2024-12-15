@@ -351,13 +351,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.27791652, y: -0, z: -0, w: 0.9606052}
-  m_LocalPosition: {x: 0.19, y: 4.14, z: -5.734}
+  m_LocalRotation: {x: 0.47997087, y: -0, z: -0, w: 0.87728447}
+  m_LocalPosition: {x: 0.19, y: 4.14, z: -0.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 32.272, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 57.367, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1337,6 +1337,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2013951953}
+        m_TargetAssemblyTypeName: SpawnWaves, Assembly-CSharp
+        m_MethodName: SpawnParallel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1596792250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1694,8 +1706,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2ec6a0ffc6bcd4183339a9d66e7d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6630836554318541548, guid: 0a479b4535111174b81f6870576eb8a9, type: 3}
-  spawnPoint: {fileID: 0}
+  objectToSpawn: {fileID: 6630836554318541548, guid: 0a479b4535111174b81f6870576eb8a9, type: 3}
+  exasParent: {fileID: 36945957}
+  offset: {x: 0.6, y: 0, z: 0}
 --- !u!4 &2013951954
 Transform:
   m_ObjectHideFlags: 0

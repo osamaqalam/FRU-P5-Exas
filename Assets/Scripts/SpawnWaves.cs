@@ -2,24 +2,55 @@ using UnityEngine;
 
 public class SpawnWaves : MonoBehaviour
 {
-    public GameObject prefab; // Assign your Prefab in the Inspector
-    public Transform spawnPoint; // Optional: assign where objects should spawn
+    public GameObject objectToSpawn; // The prefab to spawn
+    public GameObject exasParent; // The object to spawn parallel to
+    public Vector3 offset = new Vector3(1, 0, 0); // Offset from the reference object
 
-    void Update()
+    public void SpawnParallel()
     {
-        // Check if "S" key is pressed
-        if (Input.GetKeyDown(KeyCode.S))
+        if (objectToSpawn != null && exasParent != null)
         {
-            SpawnObject(); // Call the spawn method
+            // Destroy all instances of the object to spawn
+            DestroyAllInstances();
+
+            // If we are in reset mode then don't spawn waves
+            if (!exasParent.activeSelf) 
+                return;
+
+            // Loop through each child of the parent
+            foreach (Transform child in exasParent.transform)
+            {
+                // Calculate spawn position relative to the child
+                Vector3 spawnPosition = child.position + offset;
+
+                // Spawn the object at the calculated position with the child's rotation
+                Instantiate(objectToSpawn, spawnPosition, child.rotation);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Object to spawn or reference object is not assigned!");
         }
     }
 
-    void SpawnObject()
+    public void DestroyAllInstances()
     {
-        // If no spawn point is defined, spawn at the spawner's position
-        Vector3 spawnPosition = spawnPoint != null ? spawnPoint.position : transform.position;
+        if (objectToSpawn == null)
+        {
+            Debug.LogWarning("Prefab is not assigned!");
+            return;
+        }
 
-        // Instantiate the object
-        Instantiate(prefab, spawnPosition, Quaternion.identity);
+        // Find all GameObjects in the scene that are instances of the prefab
+        //GameObject[] allObjects = GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
+        GameObject[] objects = GameObject.FindGameObjectsWithTag(objectToSpawn.tag);
+
+
+        foreach (GameObject obj in objects)
+        {
+                Destroy(obj); // Destroy the object
+        }
+
+        Debug.Log("All instances of the prefab have been deleted.");
     }
 }
