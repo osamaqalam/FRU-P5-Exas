@@ -7,12 +7,18 @@ public class SpawnWaves : MonoBehaviour
     public GameObject objectToSpawn; // The prefab to spawn
     public Transform exasParent; // The object to spawn parallel to
     public Vector3 offset = new Vector3(1, 0, 0); // Offset from the reference object
-    public float timeBetweenObjects = 0.5f; // Delay between objects in the same set
+    public float timeBetweenWaves = 2f; // Delay between objects in the same set
     public float timeBetweenSets = 5f; // Delay between starting new sets
     private int SETS_NUM = 3;
+    private int WAVES_PER_SET = 4;
+    private float planeWidth; // Width in the local x-axis
+
 
     public void StartSpawning()
     {
+        Renderer planeRenderer = objectToSpawn.GetComponent<Renderer>();
+        planeWidth = planeRenderer.bounds.size.x;
+
         StartCoroutine(StartExaSets());
     }
 
@@ -42,25 +48,31 @@ public class SpawnWaves : MonoBehaviour
             //   return;
 
             // Loop through each child of the parent
-            foreach (Transform child in Exas)
+            for (int i = 0; i < WAVES_PER_SET; i++)
             {
-                // Calculate the offset relative to the reference object's local rotation
-                Vector3 adjustedOffset = child.TransformDirection(offset);
+                foreach (Transform child in Exas)
+                {
+                    // Calculate the offset relative to the reference object's local rotation
+                    Vector3 adjustedOffset = child.TransformDirection(offset+new Vector3(i*planeWidth,0,0));
 
-                // Calculate spawn position relative to the child
-                Vector3 spawnPosition = child.position + adjustedOffset;
+                    Debug.Log(adjustedOffset);
 
-                // Spawn the object at the calculated position with the child's rotation
-                Instantiate(objectToSpawn, spawnPosition, child.rotation);
+                    // Calculate spawn position relative to the child
+                    Vector3 spawnPosition = child.position + adjustedOffset;
+
+                    // Spawn the object at the calculated position with the child's rotation
+                    Instantiate(objectToSpawn, spawnPosition, child.rotation);
+                }
+
+                yield return new WaitForSeconds(timeBetweenWaves); // Wait to start the next set
 
             }
-            
+
         }
         else
         {
             Debug.LogWarning("Object to spawn or reference object is not assigned!");
         }
-        yield return null;
     }
 
     public void DestroyAllInstances()
