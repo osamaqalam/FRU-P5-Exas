@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 
 public class SpawnWaves : MonoBehaviour
@@ -19,7 +20,6 @@ public class SpawnWaves : MonoBehaviour
 
     private bool isUpdateEnabled = false; // Flag to control Update logic
     private float waveWidth; // Width in the local x-axis
-    private int SETS_NUM = 3;
 
     void Start ()
     {
@@ -51,10 +51,14 @@ public class SpawnWaves : MonoBehaviour
 
     public void SpawnSet(int setIndex, int waveIndex)
     {
+        GameObject spawnedWave;
+
         if (objectToSpawn != null && exasParent != null)
         {
-            Transform[] setExas = new Transform[2];
+            if (waveIndex>0 && waveIndex<wavesPerSet)
+                DestroyWaves(setIndex, waveIndex - 1);
 
+            Transform[] setExas = new Transform[2];
             setExas[0] = exasParent.GetChild(setIndex * 2);
             setExas[1] = exasParent.GetChild(setIndex * 2 + 1);
 
@@ -68,7 +72,9 @@ public class SpawnWaves : MonoBehaviour
                 Vector3 spawnPosition = child.position + adjustedOffset;
 
                 // Spawn the object at the calculated position with the child's rotation
-                Instantiate(objectToSpawn, spawnPosition, child.rotation);
+                spawnedWave = Instantiate(objectToSpawn, spawnPosition, child.rotation);
+                
+                spawnedWave.name = $"YWave{setIndex}{waveIndex}";
             }
             
         }
@@ -85,25 +91,29 @@ public class SpawnWaves : MonoBehaviour
         isUpdateEnabled = true;
     }
 
-    public void DestroyAllInstances()
+    public void DestroyWaves(int setIndex, int waveIndex)
     {
-        if (objectToSpawn == null)
-        {
-            Debug.LogWarning("Prefab is not assigned!");
-            return;
-        }
+        // Find all GameObjects in the scene that have specified name
+        List<GameObject> waves = SearchByName($"YWave{setIndex}{waveIndex}");
 
-        // Find all GameObjects in the scene that are instances of the prefab
-        GameObject[] objects = GameObject.FindGameObjectsWithTag(objectToSpawn.tag);
-
-
-        foreach (GameObject obj in objects)
-        {
-                Destroy(obj); // Destroy the object
-        }
-
-        Debug.Log("All instances of the prefab have been deleted.");
+        foreach (GameObject wave in waves)
+            Destroy(wave);
     }
 
-    
+    public List<GameObject> SearchByName(string targetName)
+    {
+        GameObject[] allObjects = GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None); // Get all active GameObjects
+
+        List<GameObject> matchingObjects = new List<GameObject>();
+
+        foreach (GameObject obj in allObjects)
+        {
+            if (obj.name == targetName)
+            {
+                matchingObjects.Add(obj);
+            }
+        }
+
+        return matchingObjects;
+    }
 }
