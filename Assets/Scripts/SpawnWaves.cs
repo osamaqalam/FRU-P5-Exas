@@ -7,52 +7,68 @@ public class SpawnWaves : MonoBehaviour
     public GameObject objectToSpawn; // The prefab to spawn
     public Transform exasParent; // The object to spawn parallel to
     public Vector3 offset = new Vector3(1, 0, 0); // Offset from the reference object
-    public float timeBetweenObjects = 0.5f; // Delay between objects in the same set
+    public float timeBetweenWaves = 0.5f; // Delay between objects in the same set
     public float timeBetweenSets = 5f; // Delay between starting new sets
+    public float timeToSpawnSet1 = 2f;
+    public float timeToSpawnSet2 = 4f;
+    public float timeToSpawnSet3 = 6f;
+    public int wavesPerSet = 4;
+    private int waveIndex1 = 0;
+    private int waveIndex2 = 0;
+    private int waveIndex3 = 0;
+
+    private bool isUpdateEnabled = false; // Flag to control Update logic
+    private float waveWidth; // Width in the local x-axis
     private int SETS_NUM = 3;
 
-    public void StartSpawning()
+    void Start ()
     {
-        StartCoroutine(StartExaSets());
+        Renderer planeRenderer = objectToSpawn.GetComponent<Renderer>();
+        waveWidth = planeRenderer.bounds.size.x;
     }
 
-    private IEnumerator StartExaSets()
+    void Update ()
     {
-        Transform[] childrenArray = new Transform[2];
+        if (!isUpdateEnabled) return;
 
-        for (int i=0; i< SETS_NUM; i++)
+        CheckSpawnTime(ref timeToSpawnSet1, 0, ref waveIndex1);
+
+        CheckSpawnTime(ref timeToSpawnSet2, 1, ref waveIndex2);
+
+        CheckSpawnTime(ref timeToSpawnSet3, 2, ref waveIndex3);
+    }
+
+    public void CheckSpawnTime(ref float currentTimeToSpawnSet, int setIndex, ref int waveIndex)
+    {
+        if (currentTimeToSpawnSet > 0)
+            currentTimeToSpawnSet -= Time.deltaTime;
+        else if (waveIndex < wavesPerSet)
         {
-            childrenArray[0] = exasParent.GetChild(i * 2);
-            childrenArray[1] = exasParent.GetChild(i * 2 + 1);
-
-            StartCoroutine(SpawnSet(childrenArray)); // Start spawning a new set
-            yield return new WaitForSeconds(timeBetweenSets); // Wait to start the next set
+            SpawnSet(setIndex, waveIndex++);
+            currentTimeToSpawnSet = timeBetweenWaves;
         }
     }
 
-    public IEnumerator SpawnSet(Transform[] Exas)
+    public void SpawnSet(int setIndex, int waveIndex)
     {
         if (objectToSpawn != null && exasParent != null)
         {
-            // Destroy all instances of the object to spawn
-            //DestroyAllInstances();
+            Transform[] setExas = new Transform[2];
 
-            // If we are in reset mode then don't spawn waves
-            //if (!exasParent.activeSelf) 
-            //   return;
+            setExas[0] = exasParent.GetChild(setIndex * 2);
+            setExas[1] = exasParent.GetChild(setIndex * 2 + 1);
 
             // Loop through each child of the parent
-            foreach (Transform child in Exas)
+            foreach (Transform child in setExas)
             {
                 // Calculate the offset relative to the reference object's local rotation
-                Vector3 adjustedOffset = child.TransformDirection(offset);
+                Vector3 adjustedOffset = child.TransformDirection(offset + new Vector3(waveIndex * waveWidth, 0, 0));
 
                 // Calculate spawn position relative to the child
                 Vector3 spawnPosition = child.position + adjustedOffset;
 
                 // Spawn the object at the calculated position with the child's rotation
                 Instantiate(objectToSpawn, spawnPosition, child.rotation);
-
             }
             
         }
@@ -60,7 +76,13 @@ public class SpawnWaves : MonoBehaviour
         {
             Debug.LogWarning("Object to spawn or reference object is not assigned!");
         }
-        yield return null;
+    }
+
+
+    // Method to enable Update (assign this to your button's OnClick)
+    public void EnableUpdate()
+    {
+        isUpdateEnabled = true;
     }
 
     public void DestroyAllInstances()
