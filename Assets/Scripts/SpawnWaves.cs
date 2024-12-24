@@ -84,11 +84,9 @@ public class SpawnWaves : MonoBehaviour
         }
     }
 
-
-    // Method to enable Update (assign this to your button's OnClick)
-    public void EnableUpdate()
+    public void ToggleUpdate()
     {
-        isUpdateEnabled = true;
+        isUpdateEnabled = !isUpdateEnabled;
     }
 
     public void DestroyWaves(int setIndex, int waveIndex)

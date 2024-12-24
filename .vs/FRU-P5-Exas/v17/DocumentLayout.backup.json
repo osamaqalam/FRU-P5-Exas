@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\ToggleExasVisibility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\ToggleExasVisibility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\StartButtonHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\StartButtonHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\ToggleSpawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\ToggleSpawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\SpawnWaves.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\SpawnWaves.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\SwitchStartAndReset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\SwitchStartAndReset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\ToggleExasVisibility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\ToggleExasVisibility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\DestroyWaves.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\DestroyWaves.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,38 +35,67 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ToggleSpawner.cs",
+              "DocumentMoniker": "C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\ToggleSpawner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ToggleSpawner.cs",
+              "ToolTip": "C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\ToggleSpawner.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ToggleSpawner.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T22:19:42.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SpawnWaves.cs",
+              "DocumentMoniker": "C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\SpawnWaves.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SpawnWaves.cs",
+              "ToolTip": "C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\SpawnWaves.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SpawnWaves.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAmwC8AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T08:20:55.763Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SwitchStartAndReset.cs",
+              "DocumentMoniker": "C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\SwitchStartAndReset.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SwitchStartAndReset.cs",
+              "ToolTip": "C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\SwitchStartAndReset.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SwitchStartAndReset.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T21:32:35.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ToggleExasVisibility.cs",
               "DocumentMoniker": "C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\ToggleExasVisibility.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ToggleExasVisibility.cs",
               "ToolTip": "C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\ToggleExasVisibility.cs",
               "RelativeToolTip": "Assets\\Scripts\\ToggleExasVisibility.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-13T03:58:43.386Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StartButtonHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\StartButtonHandler.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\StartButtonHandler.cs",
-              "ToolTip": "C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\StartButtonHandler.cs",
-              "RelativeToolTip": "Assets\\Scripts\\StartButtonHandler.cs",
+              "DocumentIndex": 4,
+              "Title": "DestroyWaves.cs",
+              "DocumentMoniker": "C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\DestroyWaves.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DestroyWaves.cs",
+              "ToolTip": "C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\DestroyWaves.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DestroyWaves.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T03:37:35.792Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SpawnWaves.cs",
-              "DocumentMoniker": "C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\SpawnWaves.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SpawnWaves.cs",
-              "ToolTip": "C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\SpawnWaves.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SpawnWaves.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T08:20:55.763Z"
+              "WhenOpened": "2024-12-23T21:10:27.244Z",
+              "EditorCaption": ""
             }
           ]
         }
