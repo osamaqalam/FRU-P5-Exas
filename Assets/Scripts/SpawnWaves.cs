@@ -1,13 +1,15 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 
 public class SpawnWaves : MonoBehaviour
 {
-    public GameObject objectToSpawn; // The prefab to spawn
+    public GameObject yellowWave; // The prefab to spawn
+    public GameObject purpleWave; // The prefab to spawn
     public Transform exasParent; // The object to spawn parallel to
-    public Vector3 offset = new Vector3(1, 0, 0); // Offset from the reference object
+    public Vector3 offset = new Vector3(0.55f, 0, 0); // Offset from the reference object
     public float timeBetweenWaves = 0.5f; // Delay between objects in the same set
     public float timeBetweenSets = 5f; // Delay between starting new sets
     public float timeToSpawnSet1 = 2f;
@@ -23,7 +25,7 @@ public class SpawnWaves : MonoBehaviour
 
     void Start ()
     {
-        Renderer planeRenderer = objectToSpawn.GetComponent<Renderer>();
+        Renderer planeRenderer = yellowWave.GetComponent<Renderer>();
         waveWidth = planeRenderer.bounds.size.x;
     }
 
@@ -51,9 +53,10 @@ public class SpawnWaves : MonoBehaviour
 
     public void SpawnSet(int setIndex, int waveIndex)
     {
-        GameObject spawnedWave;
+        GameObject spawnedYWave;
+        GameObject spawnedPWave;
 
-        if (objectToSpawn != null && exasParent != null)
+        if (yellowWave != null && purpleWave != null && exasParent != null)
         {
             if (waveIndex>0 && waveIndex<wavesPerSet)
                 DestroyWaves(setIndex, waveIndex - 1);
@@ -66,17 +69,23 @@ public class SpawnWaves : MonoBehaviour
             foreach (Transform child in setExas)
             {
                 // Calculate the offset relative to the reference object's local rotation
-                Vector3 adjustedOffset = child.TransformDirection(offset + new Vector3(waveIndex * waveWidth, 0, 0));
+                Vector3 adjustedYOffset = child.TransformDirection(offset + new Vector3(waveIndex * waveWidth, 0, 0));
+                Vector3 adjustedPOffset = child.TransformDirection(-offset - new Vector3(waveIndex * waveWidth, 0, 0));
+
 
                 // Calculate spawn position relative to the child
-                Vector3 spawnPosition = child.position + adjustedOffset;
+                Vector3 spawnYPosition = child.position + adjustedYOffset;
+                Vector3 spawnPPosition = child.position + adjustedPOffset;
 
                 // Spawn the object at the calculated position with the child's rotation
-                spawnedWave = Instantiate(objectToSpawn, spawnPosition, child.rotation);
-                
-                spawnedWave.name = $"YWave{setIndex}{waveIndex}";
+                spawnedYWave = Instantiate(yellowWave, spawnYPosition, child.rotation);
+                spawnedPWave = Instantiate(purpleWave, spawnPPosition, child.rotation);
+
+                spawnedYWave.name = $"YWave{setIndex}{waveIndex}";
+                spawnedPWave.name = $"PWave{setIndex}{waveIndex}";
+
             }
-            
+
         }
         else
         {
@@ -92,7 +101,7 @@ public class SpawnWaves : MonoBehaviour
     public void DestroyWaves(int setIndex, int waveIndex)
     {
         // Find all GameObjects in the scene that have specified name
-        List<GameObject> waves = SearchByName($"YWave{setIndex}{waveIndex}");
+        List<GameObject> waves = SearchByName(@$"^.Wave{setIndex}{waveIndex}");
 
         foreach (GameObject wave in waves)
             Destroy(wave);
@@ -106,7 +115,8 @@ public class SpawnWaves : MonoBehaviour
 
         foreach (GameObject obj in allObjects)
         {
-            if (obj.name == targetName)
+            //if (obj.name == targetName)
+            if(Regex.IsMatch(obj.name, targetName))
             {
                 matchingObjects.Add(obj);
             }

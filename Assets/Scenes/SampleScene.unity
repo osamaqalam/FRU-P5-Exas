@@ -2210,9 +2210,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2ec6a0ffc6bcd4183339a9d66e7d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 6630836554318541548, guid: 0a479b4535111174b81f6870576eb8a9, type: 3}
+  yellowWave: {fileID: 6630836554318541548, guid: 0a479b4535111174b81f6870576eb8a9, type: 3}
+  purpleWave: {fileID: 6630836554318541548, guid: 051b346c315ef5c4d8ca6f39e41a8a1d, type: 3}
   exasParent: {fileID: 36945957}
-  offset: {x: 0.6, y: 0, z: 0}
+  offset: {x: 0.55, y: 0, z: 0}
   timeBetweenWaves: 4
   timeBetweenSets: 5
   timeToSpawnSet1: 7.5
