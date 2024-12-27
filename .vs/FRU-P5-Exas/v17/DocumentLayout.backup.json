@@ -38,8 +38,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Reset.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T04:26:15.331Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-24T04:26:15.331Z"
             },
             {
               "$type": "Document",
@@ -49,7 +48,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\SpawnWaves.cs",
               "ToolTip": "C:\\Users\\Osama\\Desktop\\Random Codes\\FRU-P5-Exas\\Assets\\Scripts\\SpawnWaves.cs",
               "RelativeToolTip": "Assets\\Scripts\\SpawnWaves.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAAAFYAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-11T08:20:55.763Z",
               "EditorCaption": ""
@@ -64,8 +63,7 @@
               "RelativeToolTip": "Assets\\Scripts\\SwitchStartAndReset.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T21:32:35.618Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-23T21:32:35.618Z"
             },
             {
               "$type": "Document",
@@ -77,8 +75,7 @@
               "RelativeToolTip": "Assets\\Scripts\\ToggleExasVisibility.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T03:58:43.386Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-13T03:58:43.386Z"
             }
           ]
         }
