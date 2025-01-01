@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using Unity.VisualScripting;
 
 public class ExasManager : MonoBehaviour
 {
@@ -27,6 +26,7 @@ public class ExasManager : MonoBehaviour
     private int waveIndex3 = 0;
     private bool isUpdateEnabled = false; // Flag to control Update logic
     private float waveWidth; // Width in the local x-axis
+    private float _collisionDuration = 0.2f; // Duration of the collision effect
 
     /// <summary>
     /// 3rd from Dank Tank @14:29
@@ -119,6 +119,9 @@ public class ExasManager : MonoBehaviour
 
                 spawnedYWave.name = $"YWave{setIndex}{waveIndex}";
                 spawnedPWave.name = $"PWave{setIndex}{waveIndex}";
+
+                StartCoroutine(DisableColliderAfterDelay(spawnedYWave, _collisionDuration));
+                StartCoroutine(DisableColliderAfterDelay(spawnedPWave, _collisionDuration));
 
             }
 
@@ -213,6 +216,26 @@ public class ExasManager : MonoBehaviour
             {
                 Debug.LogWarning("Renderer component not found on the target object!");
             }
+        }
+    }
+
+    private IEnumerator DisableColliderAfterDelay(GameObject targetObject, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        DisableCollider(targetObject);
+    }
+
+    public void DisableCollider(GameObject targetObject)
+    {
+        Collider collider = targetObject.GetComponent<Collider>();
+        if (collider != null)
+        {
+            collider.enabled = false;
+            Debug.Log($"Collider on {targetObject.name} has been disabled.");
+        }
+        else
+        {
+            Debug.LogWarning($"Collider component not found on {targetObject.name}!");
         }
     }
 }
