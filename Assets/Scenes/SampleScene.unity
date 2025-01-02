@@ -1794,12 +1794,10 @@ MonoBehaviour:
   purpleWave: {fileID: 6630836554318541548, guid: 051b346c315ef5c4d8ca6f39e41a8a1d, type: 3}
   exasParent: {fileID: 36945957}
   offset: {x: 0.55, y: 0, z: 0}
-  timeBetweenWaves: 4
-  timeBetweenSets: 5
-  timeToSpawnSet1: 7.5
-  timeToSpawnSet2: 10.5
-  timeToSpawnSet3: 15.5
-  wavesPerSet: 4
+  timeToSpawn1stSet: 11.1
+  timeBetweenSets: 4
+  timeBetweenWaves: 2.05
+  wavesPerSet: 8
   glowSpeed: 2
   minGlow: 0.5
   maxGlow: 4

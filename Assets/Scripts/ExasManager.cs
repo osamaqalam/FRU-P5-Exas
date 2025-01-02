@@ -5,19 +5,24 @@ using System.Text.RegularExpressions;
 
 public class ExasManager : MonoBehaviour
 {
+    [Header("Wave Settings")]
     public GameObject yellowWave; // The prefab to spawn
     public GameObject purpleWave; // The prefab to spawn
     public Transform exasParent; 
     public Vector3 offset = new Vector3(0.55f, 0, 0); // Offset from the reference object
-    public float timeBetweenWaves = 0.5f; // Delay between objects in the same set
-    public float timeBetweenSets = 5f; // Delay between starting new sets
-    public float timeToSpawnSet1 = 2f;
-    public float timeToSpawnSet2 = 4f;
-    public float timeToSpawnSet3 = 6f;
-    public int wavesPerSet = 4;
+
+    [Header("Timing Settings")]
+    public float tellDuration = 7f; // Duration of the tell animation
+    public float timeToSpawn1stSet = 11.1f;
+    public float timeBetweenSets = 4f; // Delay between starting new sets
+    public float timeBetweenWaves = 2.05f; // Delay between objects in the same set
+    public int wavesPerSet = 8;
+
+    [Header("Glow Settings")]
     public float glowSpeed = 2f; // Speed of the pulse
     public float minGlow = 0.5f; // Minimum intensity
     public float maxGlow = 2f;  // Maximum intensity
+
     private float _timeToSpawnSet1;
     private float _timeToSpawnSet2;
     private float _timeToSpawnSet3;
@@ -50,15 +55,15 @@ public class ExasManager : MonoBehaviour
         // Use the random number to determine the order of the sets
         if (randomNumber == 0)
         {
-            _timeToSpawnSet1 = timeToSpawnSet1;
-            _timeToSpawnSet2 = timeToSpawnSet2;
-            _timeToSpawnSet3 = timeToSpawnSet3;
+            _timeToSpawnSet1 = timeToSpawn1stSet;
+            _timeToSpawnSet2 = timeToSpawn1stSet + timeBetweenSets;
+            _timeToSpawnSet3 = timeToSpawn1stSet + 2 * timeBetweenSets;
         }
         else
         {
-            _timeToSpawnSet1 = timeToSpawnSet3;
-            _timeToSpawnSet2 = timeToSpawnSet2;
-            _timeToSpawnSet3 = timeToSpawnSet1;
+            _timeToSpawnSet1 = timeToSpawn1stSet + 2 * timeBetweenSets;
+            _timeToSpawnSet2 = timeToSpawn1stSet + timeBetweenSets;
+            _timeToSpawnSet3 = timeToSpawn1stSet;
         }
     }
 
@@ -75,7 +80,7 @@ public class ExasManager : MonoBehaviour
 
     public void CheckSpawnTime(ref float currentTimeToSpawnSet, int setIndex, ref int waveIndex)
     {
-        if (currentTimeToSpawnSet <= 3)
+        if (currentTimeToSpawnSet <= tellDuration)
             GlowExas(setIndex);
 
         if (currentTimeToSpawnSet > 0)
@@ -209,8 +214,6 @@ public class ExasManager : MonoBehaviour
                 // Assign the emission color with the calculated intensity
                 glowMaterial.SetColor("_EmissionColor", glowColor * intensity);
                 exaRenderer.material = glowMaterial; // Apply the new material to the renderer
-
-                Debug.Log($"Emission Intensity: {intensity}");
             }
             else
             {
@@ -231,7 +234,6 @@ public class ExasManager : MonoBehaviour
         if (collider != null)
         {
             collider.enabled = false;
-            Debug.Log($"Collider on {targetObject.name} has been disabled.");
         }
         else
         {
